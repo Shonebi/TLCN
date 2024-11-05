@@ -1,49 +1,40 @@
-import React from 'react'
+import React from 'react';
 import { Menu } from 'antd';
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+// import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import CardProductComponent from '../../components/CardProductComponent/CardProductComponent';
 
 const items = [
   {
     key: 'sub1',
-    label: 'Navigation One',
-    icon: <MailOutlined />,
+    label: 'Collection',
     children: [
       {
-        key: 'g1',
-        label: 'Item 1',
-        type: 'group',
-        children: [
-          {
-            key: '1',
-            label: 'Option 1',
-          },
-          {
-            key: '2',
-            label: 'Option 2',
-          },
-        ],
+        key: '1',
+        label: 'Option 1',
       },
       {
-        key: 'g2',
-        label: 'Item 2',
-        type: 'group',
-        children: [
-          {
-            key: '3',
-            label: 'Option 3',
-          },
-          {
-            key: '4',
-            label: 'Option 4',
-          },
-        ],
+        key: '2',
+        label: 'Option 2',
       },
     ],
   },
   {
     key: 'sub2',
-    label: 'Navigation Two',
-    icon: <AppstoreOutlined />,
+    label: 'Color',
+    children: [
+      {
+        key: '3',
+        label: 'Option 3',
+      },
+      {
+        key: '4',
+        label: 'Option 4',
+      },
+    ],
+  },
+  {
+    key: 'sub3',
+    label: 'Size',
     children: [
       {
         key: '5',
@@ -53,60 +44,19 @@ const items = [
         key: '6',
         label: 'Option 6',
       },
-      {
-        key: 'sub3',
-        label: 'Submenu',
-        children: [
-          {
-            key: '7',
-            label: 'Option 7',
-          },
-          {
-            key: '8',
-            label: 'Option 8',
-          },
-        ],
-      },
     ],
-  },
-  {
-    type: 'divider',
   },
   {
     key: 'sub4',
-    label: 'Navigation Three',
-    icon: <SettingOutlined />,
+    label: 'Price',
     children: [
       {
-        key: '9',
-        label: 'Option 9',
+        key: '7',
+        label: '100.000đ - 300.000đ',
       },
       {
-        key: '10',
-        label: 'Option 10',
-      },
-      {
-        key: '11',
-        label: 'Option 11',
-      },
-      {
-        key: '12',
-        label: 'Option 12',
-      },
-    ],
-  },
-  {
-    key: 'grp',
-    label: 'Group',
-    type: 'group',
-    children: [
-      {
-        key: '13',
-        label: 'Option 13',
-      },
-      {
-        key: '14',
-        label: 'Option 14',
+        key: '8',
+        label: '300.000đ - 600.000đ',
       },
     ],
   },
@@ -116,16 +66,30 @@ const HomePage = () => {
   const onClick = (e) => {
     console.log('click ', e);
   };
-  return (
-    <Menu
-      onClick={onClick}
-      style={{width: 256,}}
-      defaultSelectedKeys={['1']}
-      defaultOpenKeys={['sub1']}
-      mode="inline"
-      items={items}
-    />
-  )
-}
 
-export default HomePage
+  return (
+    <div style={{ display: 'flex', padding: '20px' }}>
+      <Menu
+        onClick={onClick}
+        style={{ width: 256 }}
+        defaultSelectedKeys={['1']}
+        defaultOpenKeys={['sub1']}
+        mode="inline"
+        items={items}
+      />
+      <div style={{ flex: 1, display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px', marginLeft: '20px' }}>
+        <CardProductComponent />
+        <CardProductComponent />
+        <CardProductComponent />
+        <CardProductComponent />
+        <CardProductComponent />
+        <CardProductComponent />
+        <CardProductComponent />
+        <CardProductComponent />
+        <CardProductComponent />
+      </div>
+    </div>
+  );
+};
+
+export default HomePage;

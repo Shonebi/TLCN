@@ -19,11 +19,11 @@ export const HeaderComponent = () => {
                     />
                 </Col>
                 <Col span={6}>
-                    <WrapperHeaderAccount>
+                    <WrapperHeaderAccount style={{whiteSpace: 'nowrap', padding: '10px 16px'}}>
                         <span>
                             Đăng nhập | Đăng ký
                         </span>
-                        <ShoppingCartOutlined style={{ fontSize: '30px' }} />
+                        <ShoppingCartOutlined style={{ fontSize: '35px' }} />
                     </WrapperHeaderAccount>
                 </Col>
             </WrapperHeader>

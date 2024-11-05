@@ -4,6 +4,8 @@ import styled from "styled-components";
 export const WrapperHeader = styled(Row)`
     padding: 10px 120px;
     align-items: center;
+    gap: 16px;
+    flex-wrap: nowrap;
 `
 // eslint-disable-next-line no-use-before-define
 
