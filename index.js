@@ -1,31 +1,26 @@
-const express = require('express')
-const dotenv = require('dotenv')
-const mongoose = require('mongoose')
-// const productRoutes = require('./routes/productRoutes'); 
-// const orderRoutes = require('./routes/orderRoutes')
-// const categoryRoutes = require('./routes/categoryRoutes')
-const UserRoute = require('./routes/UserRoute');
-dotenv.config()
+import express from "express";
+import dotenv from "dotenv";
+import viewEngine from "./src/config/viewEngine.js";
+import initWebRoutes from "./src/routes/web.js";
 
-const app = express()
-app.use(express.json())
-// app.use(express.urlencoded({extended: false}))
+dotenv.config(); // Nạp các biến môi trường từ file .env
 
+let app = express();
 
-const port = process.env.PORT
+// Sử dụng middleware của Express để xử lý JSON và URL-encoded dữ liệu
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Cấu hình view engine và các routes
+viewEngine(app);
+initWebRoutes(app);
+
+let port = process.env.PORT;
 
 app.listen(port, (err) => {
-    if (err) {
-      console.error('Error starting the server:', err.message);
-    } else {
-      console.log('App is running on port', port);
-    }
-  });
-
-
-  
-
-app.use('/User', UserRoute);
-// app.use('/product',productRoutes)
-// app.use('/category', categoryRoutes)
-// app.use('/order', orderRoutes)
+  if (err) {
+    console.error("Error starting the server:", err.message);
+  } else {
+    console.log("App is running on port :" + port);
+  }
+});

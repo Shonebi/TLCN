@@ -1,0 +1,22 @@
+npm install bcrypt 
+npm install cors 
+npm install dotenv 
+npm install express 
+npm install express-async-handler 
+npm install jsonwebtoken 
+npm install mongodb 
+npm install mongoose 
+npm install mongoose-paginate-v2 
+npm installswagger-jsdoc 
+npm install swagger-ui-express 
+npm install tedious
+npm install --save-exact @babel/core
+npm install --save-exact @babel/node
+npm install --save-exact @babel/preset-env
+
+npm install --save-dev sequelize sequelize-cli@6.2.0
+cd src
+npx sequelize-cli init  
+npm install --save mysql2@2.2.5    
+npx sequelize-cli db:migrate
+npx sequelize-cli model:create --name User --attributes "firstName:string,lastName:string,email:string"
