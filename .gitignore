@@ -1,0 +1,31 @@
+# .gitignore
+node_modules/
+/vendor
+/.idea
+.idea/
+.env
+*.log
+dist/
+build/
+
+# Thư mục node_modules
+node_modules/
+
+# Tệp log
+*.log
+
+# Tệp cấu hình của môi trường
+.env
+
+# Thư mục cache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Thư mục OS tạm thời
+.DS_Store
+Thumbs.db
+
+# Các tệp biên dịch
+dist/
+build/
