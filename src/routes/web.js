@@ -1,20 +1,17 @@
 import express from "express";
-import {
-  getHomePage,
-  getAboutPage,
-  getCRUD,
-  postCRUD,
-  getdisplayCRUD,
-} from "../controllers/homeController";
+import homeController from "../controllers/homeController";
 
 let router = express.Router();
 
 let initWebRoutes = (app) => {
-  router.get("/", getHomePage);
-  router.get("/about", getAboutPage);
-  router.get("/crud", getCRUD);
-  router.post("/post-crud", postCRUD);
-  router.get("/display-CRUD", getdisplayCRUD)
+  router.get("/", homeController.getHomePage);
+  router.get("/about", homeController.getAboutPage);
+  router.get("/crud", homeController.getCRUD);
+  router.post("/post-crud", homeController.postCRUD);
+  router.get("/display-CRUD", homeController.getdisplayCRUD);
+  router.get("/edit-crud", homeController.getEditCRUD);
+  router.post("/put-crud", homeController.PutCRUD);
+  router.get("/delete-crud", homeController.DeleteCRUD);
 
   return app.use("/", router);
 };

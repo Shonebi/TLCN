@@ -1,6 +1,7 @@
 import bcrypt from "bcryptjs";
 import db from "../models/index";
 import { raw } from "body-parser";
+import { where } from "sequelize";
 
 const salt = bcrypt.genSaltSync(10);
 
@@ -13,7 +14,7 @@ let createNewUser = async (data) => {
         email: data.email,
         password: hashUserPasswordFromBcrypt,
         address: data.address,
-        numPhone: numPhone,
+        numPhone: data.numPhone,
         gender: data.gender === "1" ? true : false,
       });
 
@@ -48,7 +49,67 @@ let getAllUser = () => {
   });
 };
 
+let GetUserInfoByID = (userID) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let user = await db.User.findOne({
+        where: { userID: userID },
+        raw: true,
+      });
+      if (user) {
+        resolve(user);
+      } else {
+        resolve([]);
+      }
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+
+let updateUserData = (data) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let user = await db.User.findOne({
+        where: { userID: data.userID },
+      });
+      if (user) {
+        user.userName = data.userName;
+        user.address = data.address;
+
+        await user.save();
+
+        let AllUser = await db.User.findAll();
+        resolve(AllUser);
+      } else {
+        resolve();
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  });
+};
+
+let deleteUserByID = (userID) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let user = await db.User.findOne({
+        where: { userID: userID },
+      });
+      if (user) {
+        await user.destroy();
+      }
+      resolve();
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+
 module.exports = {
   createNewUser: createNewUser,
   getAllUser: getAllUser,
+  GetUserInfoByID: GetUserInfoByID,
+  updateUserData: updateUserData,
+  deleteUserByID: deleteUserByID,
 };
