@@ -1,0 +1,66 @@
+.login-background {
+  height: 100vh;
+  border: 1px;
+  padding: 10px;
+
+  .login-container {
+    width: 725px;
+    height: 650px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: 1px solid red;
+    border-radius: 3px;
+    .login-content {
+      display: flex;
+      padding: 30px;
+      justify-content: center; /* Căn giữa theo chiều ngang */
+      align-items: center; /* Căn giữa theo chiều dọc */
+      .login-text {
+        font-size: 40px;
+        font-weight: bold;
+      }
+
+      .login-input {
+        margin: 10px 0;
+        font-size: 16px;
+
+        .input-password-control {
+          position: relative;
+          i {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+          }
+          cursor: pointer;
+        }
+      }
+
+      .login-btn {
+        width: 50%; /* Nút rộng bằng container */
+        margin: 10px 0; /* Khoảng cách trên dưới */
+        height: 50px; /* Chiều cao nút */
+
+        border-radius: 999px; /* Bo tròn góc */
+        outline: none; /* Bỏ viền mặc định */
+        border: 1px solid #fff; /* Viền trắng để nổi bật */
+        background: rgb(0, 0, 0); /* Nền đen */
+        color: white; /* Màu chữ trắng */
+        font-size: 16px; /* Kích thước chữ */
+        cursor: pointer; /* Thay đổi con trỏ khi hover */
+        transition: background 0.3s ease, transform 0.2s ease;
+      }
+      .span-control {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+        margin-right: 10px;
+        font-size: 16px;
+      }
+    }
+  }
+}
