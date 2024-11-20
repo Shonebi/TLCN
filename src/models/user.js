@@ -4,7 +4,6 @@ const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
-      // Định nghĩa mối quan hệ với bảng ImageLink
       User.belongsTo(models.ImageLink, { foreignKey: "imageID" });
     }
   }
@@ -25,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true,
       },
       numPhone: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING(12),
         allowNull: true,
       },
       email: {
@@ -43,7 +42,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true,
       },
       password: {
-        type: DataTypes.STRING(24),
+        type: DataTypes.STRING(100),
         allowNull: true,
       },
       role: {
@@ -62,9 +61,13 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: true,
         references: {
-          model: "ImageLink", // Tên của bảng tham chiếu
+          model: "ImageLink",
           key: "imageID",
         },
+      },
+      gender: {
+        type: DataTypes.BOOLEAN,
+        allowNull: true,
       },
     },
     {

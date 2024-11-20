@@ -15,8 +15,9 @@ let createNewUser = async (data) => {
         password: hashUserPasswordFromBcrypt,
         address: data.address,
         numPhone: data.numPhone,
-        gender: data.gender === "1" ? true : false,
+        Gender: data.Gender === "1" ? true : false,
       });
+      console.log(data);
 
       resolve("created a account");
     } catch (e) {

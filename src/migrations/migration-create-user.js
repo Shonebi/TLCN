@@ -61,6 +61,12 @@ module.exports = {
         onUpdate: "CASCADE",
         onDelete: "SET NULL",
       },
+      gender: {
+        // Thêm cột gender
+        type: Sequelize.BOOLEAN,
+        allowNull: true,
+        defaultValue: 0, // 0 là Nữ, 1 là Nam
+      },
       createdAt: {
         type: Sequelize.DATE,
         allowNull: false,
