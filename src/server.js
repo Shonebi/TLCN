@@ -3,9 +3,10 @@ import dotenv from "dotenv";
 import viewEngine from "./config/viewEngine.js";
 import initWebRoutes from "./routes/web.js";
 import connectDB from "./config/connectDB.js";
-
+import cors from "cors";
 dotenv.config();
 let app = express();
+app.use(cors({ credentials: true, origin: true }));
 
 // Sử dụng middleware của Express để xử lý JSON và URL-encoded dữ liệu
 app.use(express.json());
