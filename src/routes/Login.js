@@ -10,7 +10,7 @@
 // import "./Login.scss"; // Nếu cần thêm các custom CSS
 // import { FormattedMessage } from "react-intl";
 
-// import adminService from "../services/adminService";
+// import userService from "../services/userService";
 
 // class Login extends Component {
 //   constructor(props) {
@@ -51,24 +51,24 @@
 //   processLogin = () => {
 //     const { username, password } = this.state;
 
-//     const { adminLoginSuccess, adminLoginFail } = this.props;
+//     const { userLoginSuccess, userLoginFail } = this.props;
 //     let loginBody = {
-//       username: "admin",
+//       username: "user",
 //       password: "123456",
 //     };
 
-//     let adminInfo = {
+//     let userInfo = {
 //       tlid: "0",
-//       tlfullname: "Administrator",
+//       tlfullname: "useristrator",
 //       custype: "A",
 //       accessToken: "eyJhbGciOiJIU",
 //     };
 
-//     adminLoginSuccess(adminInfo);
+//     userLoginSuccess(userInfo);
 //     this.refresh();
 //     this.redirectToSystemPage();
 //     try {
-//       adminService.login(loginBody);
+//       userService.login(loginBody);
 //     } catch (e) {
 //       console.log("error login : ", e);
 //     }
@@ -193,9 +193,9 @@
 // const mapDispatchToProps = (dispatch) => {
 //   return {
 //     navigate: (path) => dispatch(push(path)),
-//     adminLoginSuccess: (adminInfo) =>
-//       dispatch(actions.adminLoginSuccess(adminInfo)),
-//     adminLoginFail: () => dispatch(actions.adminLoginFail()),
+//     userLoginSuccess: (userInfo) =>
+//       dispatch(actions.userLoginSuccess(userInfo)),
+//     userLoginFail: () => dispatch(actions.userLoginFail()),
 //   };
 // };
 
