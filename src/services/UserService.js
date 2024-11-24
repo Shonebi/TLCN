@@ -80,7 +80,8 @@ let getAllUsers = (userID) => {
         users = await db.User.findAll({
           attributes: { exclude: ["password"] }, // Loại bỏ cột nhạy cảm
         });
-      } else {
+      }
+      if (userID && userID !== "All") {
         // Lấy thông tin một người dùng cụ thể
         users = await db.User.findOne({
           where: { userID: userID },
